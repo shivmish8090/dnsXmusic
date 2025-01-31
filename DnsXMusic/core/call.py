@@ -608,13 +608,16 @@ class Call(PyTgCalls):
         @self.five.on_update(
             filters.call_participant(GroupCallParticipant.Action.UPDATED)
         )
-        async def participants_change_handler(client, update: Update):
-            if not isinstance(
-                update, GroupCallParticipant.Action.JOINED
-            ) and not isinstance(update, GroupCallParticipant.Action.LEFT):
+        async def participants_change_handler(client, update):
+            if not isinstance(update, GroupCallParticipant):
                 return
+        
+            if update.action not in [GroupCallParticipant.Action.JOINED, GroupCallParticipant.Action.LEFT]:
+                return
+        
             chat_id = update.chat_id
             users = counter.get(chat_id)
+        
             if not users:
                 try:
                     got = len(await client.get_participants(chat_id))
@@ -628,7 +631,7 @@ class Call(PyTgCalls):
             else:
                 final = (
                     users + 1
-                    if isinstance(update, GroupCallParticipant.Action.JOINED)
+                    if update.action == GroupCallParticipant.Action.JOINED
                     else users - 1
                 )
                 counter[chat_id] = final
@@ -636,6 +639,5 @@ class Call(PyTgCalls):
                     autoend[chat_id] = datetime.now() + timedelta(minutes=AUTO_END_TIME)
                     return
                 autoend[chat_id] = {}
-
 
 Dns = Call()
