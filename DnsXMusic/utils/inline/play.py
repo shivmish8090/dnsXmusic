@@ -106,14 +106,14 @@ def stream_markup_timer(_, videoid, chat_id, played, dur):
         ],
           [
             InlineKeyboardButton(
-                text="𝐔ρ𝖽αтєѕ", url=f"https://t.me/Dns_Official_Channel"
+                text="𝐔ᴘᴅᴧᴛᴇ", url=f"https://t.me/Dns_Official_Channel"
             ),
             InlineKeyboardButton(text=_["CLOSEMENU_BUTTON"], callback_data="𝖢𝗅𝗈𝗌𝖾"
           ),
          
         
             InlineKeyboardButton(
-                text="𝐒υρρσɾƚ", url=f"https://t.me/DNS_NETWORK"),
+                text="𝐒ᴜᴘᴘᴏꝛᴛ", url=f"https://t.me/DNS_NETWORK"),
         ],
     ]
     return buttons
@@ -123,14 +123,14 @@ def stream_markup(_, videoid, chat_id):
     buttons = [
           [
             InlineKeyboardButton(
-                text="𝐔ρ𝖽αтєѕ", url=f"https://t.me/Dns_Official_Channel"
+                text="𝐔ᴘᴅᴧᴛᴇ", url=f"https://t.me/Dns_Official_Channel"
             ),
             InlineKeyboardButton(text=_["CLOSEMENU_BUTTON"], callback_data="𝖢𝗅𝗈𝗌𝖾"
           ),
          
         
             InlineKeyboardButton(
-                text="𝐒υρρσɾƚ", url=f"https://t.me/DNS_NETWORK"),
+                text="𝐒ᴜᴘᴘᴏꝛᴛ", url=f"https://t.me/DNS_NETWORK"),
         ],
     ]
     return buttons
