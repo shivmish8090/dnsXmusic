@@ -1,6 +1,6 @@
 import math
 
-from pyrogram.types import InlineKeyboardButton
+from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 
 from DnsXMusic.utils.formatters import time_to_seconds
 
