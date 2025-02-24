@@ -38,9 +38,13 @@ async def aexec(code, client, message):
 
 async def edit_or_reply(msg: Message, **kwargs):
     func = msg.edit_text if msg.from_user.is_self else msg.reply
-    spec = getfullargspec(func.__wrapped__).args
+    sig = signature(func)
+    spec = []
+    for param in sig.parameters.values():
+        if param.name in ('self', 'cls'):
+            continue
+        spec.append(param.name)
     await func(**{k: v for k, v in kwargs.items() if k in spec})
-    await protect_message(msg.chat.id, msg.id)
 
 
 @app.on_edited_message(
@@ -146,7 +150,6 @@ async def forceclose_command(_, CallbackQuery):
     except:
         return
 
-
 @app.on_edited_message(
     filters.command("sh") & SUDOERS & ~filters.forwarded & ~filters.via_bot
 )
@@ -209,9 +212,7 @@ async def shellrunner(_, message: Message):
         await edit_or_reply(message, text=f"<b>OUTPUT :</b>\n<pre>{output}</pre>")
     else:
         await edit_or_reply(message, text="<b>OUTPUT :</b>\n<code>None</code>")
-
     await message.stop_propagation()
-
 
 __MODULE__ = "Deᴠ"
 __HELP__ = """
