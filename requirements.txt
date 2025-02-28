@@ -27,6 +27,7 @@ uvloop
 flask
 gunicorn
 yt-dlp
+ytdlx
 youtube-search-python
 youtube_search
 git+https://github.com/KurimuzonAkuma/pyrogram@dev
