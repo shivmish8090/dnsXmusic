@@ -16,7 +16,7 @@ import re
 import subprocess
 import sys
 import traceback
-from inspect import getfullargspec
+from inspect import signature
 from io import StringIO
 from time import time
 
@@ -24,8 +24,8 @@ from pyrogram import filters
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, Message
 
 from DnsXMusic import app
+#from config import OWNER_ID
 from DnsXMusic.misc import SUDOERS
-from DnsXMusic.utils.cleanmode import protect_message
 
 
 async def aexec(code, client, message):
@@ -48,10 +48,16 @@ async def edit_or_reply(msg: Message, **kwargs):
 
 
 @app.on_edited_message(
-    filters.command(["ev", "eval"]) & SUDOERS & ~filters.forwarded & ~filters.via_bot
+    filters.command("eval")
+    & filters.user(OWNER_ID)
+    & ~filters.forwarded
+    & ~filters.via_bot
 )
 @app.on_message(
-    filters.command(["ev", "eval"]) & SUDOERS & ~filters.forwarded & ~filters.via_bot
+    filters.command(["eval", "ev"], prefixes=["/", "!", ".", ""])
+    & SUDOERS #filters.user(OWNER_ID) #SUDOERS 
+    & ~filters.forwarded
+    & ~filters.via_bot
 )
 async def executor(client: app, message: Message):
     if len(message.command) < 2:
@@ -150,10 +156,19 @@ async def forceclose_command(_, CallbackQuery):
     except:
         return
 
+
 @app.on_edited_message(
-    filters.command("sh") & SUDOERS & ~filters.forwarded & ~filters.via_bot
+    filters.command("sh")
+    & filters.user(OWNER_ID)
+    & ~filters.forwarded
+    & ~filters.via_bot
 )
-@app.on_message(filters.command("sh") & SUDOERS & ~filters.forwarded & ~filters.via_bot)
+@app.on_message(
+    filters.command(["sh"], prefixes=["/", "!", ".", ""])
+    & SUDOERS #filters.user(OWNER_ID) #SUDOERS
+    & ~filters.forwarded
+    & ~filters.via_bot
+)
 async def shellrunner(_, message: Message):
     if len(message.command) < 2:
         return await edit_or_reply(message, text="<b>ᴇxᴀᴍᴩʟᴇ :</b>\n/sh git pull")
