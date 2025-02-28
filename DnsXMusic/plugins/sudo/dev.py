@@ -24,7 +24,7 @@ from pyrogram import filters
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, Message
 
 from DnsXMusic import app
-#from config import OWNER_ID
+from config import OWNER_ID
 from DnsXMusic.misc import SUDOERS
 
 
