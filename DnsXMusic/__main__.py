@@ -61,6 +61,10 @@ async def init():
 
 import asyncio
 
+import asyncio
+
 if __name__ == "__main__":
-    asyncio.run(init())
+    loop = asyncio.new_event_loop()
+    asyncio.set_event_loop(loop)
+    loop.run_until_complete(init())
     LOGGER("DnsXMusic").info("Stopping DnsXMusic! GoodBye")
