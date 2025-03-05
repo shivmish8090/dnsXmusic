@@ -58,12 +58,12 @@ async def init():
     LOGGER("DnsXMusic").info("DnsXMusic Started Successfully")
     await idle()
 
-
-import asyncio
-
-import asyncio
-
 if __name__ == "__main__":
-    loop = asyncio.get_event_loop()
-    loop.run_until_complete(init())
+    try:
+    loop = asyncio.get_running_loop()
+except RuntimeError:
+    loop = asyncio.new_event_loop()
+    asyncio.set_event_loop(loop)
+
+loop.run_until_complete(init())
     LOGGER("DnsXMusic").info("Stopping DnsXMusic! GoodBye")
