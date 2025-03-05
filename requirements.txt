@@ -30,5 +30,6 @@ yt-dlp
 ytdlx
 youtube-search-python
 youtube_search
-git+https://github.com/KurimuzonAkuma/pyrogram@dev
+kurigram==2.1.38
+#git+https://github.com/KurimuzonAkuma/pyrogram@dev
 #git+https://github.com/Vivekkumar-IN/yt-dlp-youtube-oauth2
