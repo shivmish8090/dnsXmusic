@@ -137,7 +137,7 @@ TELEGRAM_DOWNLOAD_EDIT_SLEEP = int(getenv("TELEGRAM_EDIT_SLEEP", "5"))
 
 
 # Your Github Repo.. Will be shown on /start Command
-GITHUB_REPO = getenv("GITHUB_REPO", "https://t.me/Dns_Official_Channel")
+GITHUB_REPO = getenv("GITHUB_REPO", "https://t.me/SanatanVibe")
 
 
 # Spotify Client.. Get it from https://developer.spotify.com/dashboard
