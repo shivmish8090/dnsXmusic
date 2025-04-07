@@ -92,6 +92,8 @@ HEROKU_API_KEY = getenv("HEROKU_API_KEY")
 # You have to Enter the app name which you gave to identify your  Music Bot in Heroku.
 HEROKU_APP_NAME = getenv("HEROKU_APP_NAME")
 
+API_URL = getenv("API_URL", 'https://api.thequickearn.xyz') #youtube song url
+API_KEY = getenv("API_KEY", None) # youtube song api key, get it from https://t.me/II_RAJPUT_SHIV_OP_II
 
 # For customized or modified Repository
 UPSTREAM_REPO = getenv(
