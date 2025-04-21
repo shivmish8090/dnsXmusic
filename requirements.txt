@@ -29,6 +29,7 @@ flask
 gunicorn
 yt-dlp
 ytdlx
+pymongo
 youtube-search-python
 youtube_search
 git+https://github.com/KurimuzonAkuma/pyrogram@dev
