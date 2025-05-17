@@ -98,7 +98,7 @@ API_KEY = getenv("API_KEY", None) # youtube song api key, get it from https://t.
 # For customized or modified Repository
 UPSTREAM_REPO = getenv(
     "UPSTREAM_REPO",
-    "https://github.com/shivmish8090/team-dns",
+    "https://github.com/shivmish8090/dnsXmusic",
 )
 UPSTREAM_BRANCH = getenv("UPSTREAM_BRANCH", "master")
 
@@ -215,7 +215,7 @@ autoclean = []
 
 START_IMG_URL = getenv(
     "START_IMG_URL",
-    "https://files.catbox.moe/lhy0zv.jpg",
+    "https://files.catbox.moe/3r80fy.jpg",
 )
 
 PING_IMG_URL = getenv(
@@ -225,7 +225,7 @@ PING_IMG_URL = getenv(
 
 PLAYLIST_IMG_URL = getenv(
     "PLAYLIST_IMG_URL",
-    "https://files.catbox.moe/93ax15.jpg",
+    "https://envs.sh/W_z.jpg",
 )
 
 GLOBAL_IMG_URL = getenv(
