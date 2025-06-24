@@ -1,12 +1,13 @@
-import asyncio
-from io import BytesIO
-
-import httpx
+import os
+import re
+import aiofiles
+import aiohttp
 from PIL import Image, ImageDraw, ImageEnhance, ImageFilter, ImageFont, ImageOps
-from aiofiles.os import path as aiopath
-
-from src.helpers import CachedTrack
-from src.logger import LOGGER
+from unidecode import unidecode
+from youtubesearchpython.__future__ import VideosSearch
+from DnsXMusic import app
+from config import YOUTUBE_IMG_URL
+import math
 
 FONTS = {
     "cfont": ImageFont.truetype("src/modules/utils/cfont.ttf", 15),
