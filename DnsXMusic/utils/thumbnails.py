@@ -9,10 +9,10 @@ from DnsXMusic.helpers import CachedTrack
 from DnsXMusic.logger import LOGGER
 
 FONTS = {
-    "cfont": ImageFont.truetype("src/modules/utils/cfont.ttf", 15),
-    "dfont": ImageFont.truetype("src/modules/utils/font2.otf", 12),
-    "nfont": ImageFont.truetype("src/modules/utils/font.ttf", 10),
-    "tfont": ImageFont.truetype("src/modules/utils/font.ttf", 20),
+    "cfont": ImageFont.truetype("DnsXMusic/modules/utils/cfont.ttf", 15),
+    "dfont": ImageFont.truetype("DnsXMusic/modules/utils/font2.otf", 12),
+    "nfont": ImageFont.truetype("DnsXMusic/modules/utils/font.ttf", 10),
+    "tfont": ImageFont.truetype("DnsXMusic/modules/utils/font.ttf", 20),
 }
 
 
