@@ -1,12 +1,13 @@
-import asyncio
-from io import BytesIO
-
-import httpx
+import os
+import re
+import aiofiles
+import aiohttp
 from PIL import Image, ImageDraw, ImageEnhance, ImageFilter, ImageFont, ImageOps
-from aiofiles.os import path as aiopath
-
-from DnsXMusic.helpers import CachedTrack
-from DnsXMusic.logger import LOGGER
+from unidecode import unidecode
+from youtubesearchpython.__future__ import VideosSearch
+from DnsXMusic import app
+from config import YOUTUBE_IMG_URL
+import math
 
 FONTS = {
     "cfont": ImageFont.truetype("DnsXMusic/modules/utils/cfont.ttf", 15),
