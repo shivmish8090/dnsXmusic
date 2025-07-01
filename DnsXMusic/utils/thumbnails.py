@@ -5,8 +5,8 @@ import httpx
 from PIL import Image, ImageDraw, ImageEnhance, ImageFilter, ImageFont, ImageOps
 from aiofiles.os import path as aiopath
 
-from src.helpers import CachedTrack
-from src.logger import LOGGER
+from DnsXMusic.helpers import CachedTrack
+from DnsXMusic.logger import LOGGER
 
 FONTS = {
     "cfont": ImageFont.truetype("src/modules/utils/cfont.ttf", 15),
@@ -104,7 +104,7 @@ def add_controls(img: Image.Image) -> Image.Image:
     box = (120, 120, 520, 480)
 
     region = img.crop(box)
-    controls = Image.open("src/modules/utils/controls.png").convert("RGBA")
+    controls = Image.open("DnsXMusic/modules/utils/controls.png").convert("RGBA")
     dark_region = ImageEnhance.Brightness(region).enhance(0.5)
 
     mask = Image.new("L", dark_region.size, 0)
