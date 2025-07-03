@@ -9,14 +9,14 @@ import httpx
 from PIL import Image, ImageDraw, ImageEnhance, ImageFilter, ImageFont, ImageOps
 from aiofiles.os import path as aiopath
 
-from DnsXMusic.core.thumb._dataclass import CachedTrack
-from DnsXMusic.logger import LOGGER
+from dnsXmusic.core.thumb._dataclass import CachedTrack
+from dnsXmusic.logger import LOGGER
 
 FONTS = {
-    "cfont": ImageFont.truetype("DnsXMusic/core/thumb/cfont.ttf", 15),
-    "dfont": ImageFont.truetype("DnsXMusic/core/thumb/font2.otf", 12),
-    "nfont": ImageFont.truetype("DnsXMusic/core/thumb/font.ttf", 10),
-    "tfont": ImageFont.truetype("DnsXMusic/core/thumb/font.ttf", 20),
+    "cfont": ImageFont.truetype("dnsXmusic/core/thumb/cfont.ttf", 15),
+    "dfont": ImageFont.truetype("dnsXmusic/core/thumb/font2.otf", 12),
+    "nfont": ImageFont.truetype("dnsXmusic/core/thumb/font.ttf", 10),
+    "tfont": ImageFont.truetype("DnsXmusic/core/thumb/font.ttf", 20),
 }
 
 
@@ -185,7 +185,7 @@ async def gen_thumb(song: CachedTrack) -> str:
     bg.paste(image, (paste_x, paste_y), image)
 
     draw = ImageDraw.Draw(bg)
-    draw.text((285, 180), "DnsXMusic", (192, 192, 192), font=FONTS["nfont"])
+    draw.text((285, 180), "dns music", (192, 192, 192), font=FONTS["nfont"])
     draw.text((285, 200), title, (255, 255, 255), font=FONTS["tfont"])
     draw.text((287, 235), artist, (255, 255, 255), font=FONTS["cfont"])
     draw.text((478, 321), get_duration(duration), (192, 192, 192), font=FONTS["dfont"])
