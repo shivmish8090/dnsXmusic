@@ -49,13 +49,13 @@ async def edit_or_reply(msg: Message, **kwargs):
 
 @app.on_edited_message(
     filters.command("eval")
-    & filters.user(OWNER_ID)
+    & SUDOERS
     & ~filters.forwarded
     & ~filters.via_bot
 )
 @app.on_message(
     filters.command(["eval", "ev"], prefixes=["/", "!", ".", ""])
-    & SUDOERS #filters.user(OWNER_ID) #SUDOERS 
+    & SUDOERS
     & ~filters.forwarded
     & ~filters.via_bot
 )
