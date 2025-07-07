@@ -1,3 +1,14 @@
+#
+# Copyright (C) 2024 by MISH0009@Github, < https://github.com/MISH0009 >.
+#
+# This file is part of < https://github.com/MISH0009/DNS > project,
+# and is released under the MIT License.
+# Please see < https://github.com/MISH0009/DNS/blob/master/LICENSE >
+#
+# All rights reserved.
+
+
+
 import os
 import re
 import aiohttp
@@ -21,6 +32,7 @@ async def generate_simple_thumb(videoid, filename):
     title = re.sub(r"\W+", " ", result.get("title", "Unknown Title")).title()
     channel = result.get("channel", {}).get("name", "Unknown Channel")
     duration = result.get("duration", "0:00")
+    views = result.get("viewCount", {}).get("text", "0 views")
     thumbnail_url = result["thumbnails"][0]["url"].split("?")[0]
 
     async with aiohttp.ClientSession() as session:
@@ -48,7 +60,7 @@ async def generate_simple_thumb(videoid, filename):
         thumb_y = cy + 150
         background.paste(song_thumb, (thumb_x, thumb_y), song_thumb)
 
-        max_chars = 10
+        max_chars = 20
         title_words = title.split()
         short_title = ""
         total_chars = 0
@@ -64,10 +76,11 @@ async def generate_simple_thumb(videoid, filename):
         if short_title != title:
             short_title += "....."
 
-        draw.text((600, 160), f"{short_title}", font=title_font, fill="white")
-        draw.text((600, 210), f"{channel}", font=channel_font, fill="white")
+        draw.text((570, 160), f"{short_title}", font=title_font, fill="white")
+        draw.text((570, 220), f"{channel}", font=channel_font, fill="white")
         draw.text((890, 365), f"{duration}", font=duration_font, fill="white")
-        draw.text((590, 112), "Team Dns", font=watermark_font, fill="white")
+        draw.text((570, 255), f"{views}", font=duration_font, fill="white")
+        draw.text((590, 112), "", font=watermark_font, fill="white")
 
         background.save(filename)
         return filename
@@ -81,4 +94,3 @@ async def gen_qthumb(videoid):
 
 async def gen_thumb(videoid):
     return await generate_simple_thumb(videoid, f"cache/{videoid}_v4.png")
-        
