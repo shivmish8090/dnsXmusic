@@ -32,4 +32,4 @@ ytdlx
 pymongo
 youtube-search-python
 youtube_search
-Kurigram==2.2.7
+Kurigram==2.2.6
