@@ -42,27 +42,6 @@ DURATION_LIMIT_MIN = int(
     getenv("DURATION_LIMIT", "1500")
 )  # Remember to give value in Minutes
 
-
-EXTRA_PLUGINS = getenv(
-    "EXTRA_PLUGINS",
-    "False",
-)
-
-# Fill True if you want to load extra plugins
-
-
-EXTRA_PLUGINS_REPO = getenv(
-    "EXTRA_PLUGINS_REPO",
-    "https://github.com/MISH0009/Extra-plugins",
-)
-# Fill here the external plugins repo where plugins that you want to load
-
-
-EXTRA_PLUGINS_FOLDER = getenv("EXTRA_PLUGINS_FOLDER", "plugins")
-
-# Your folder name in your extra plugins repo where all plugins stored
-
-
 # Duration Limit for downloading Songs in MP3 or MP4 format from bot
 SONG_DOWNLOAD_DURATION = int(
     getenv("SONG_DOWNLOAD_DURATION_LIMIT", "90")
