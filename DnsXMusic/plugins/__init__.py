@@ -16,11 +16,15 @@ import shutil
 import subprocess
 import sys
 from os.path import abspath, dirname, isfile, join
-
-from config import EXTRA_PLUGINS, EXTRA_PLUGINS_FOLDER, EXTRA_PLUGINS_REPO
 from DnsXMusic import LOGGER
 
 logger = LOGGER(__name__)
+
+
+EXTRA_PLUGINS = "False"
+
+EXTRA_PLUGINS_FOLDER = "plugins"
+EXTRA_PLUGINS_REPO = ""
 
 
 if EXTRA_PLUGINS_FOLDER in os.listdir():
