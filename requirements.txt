@@ -28,7 +28,6 @@ uvloop
 flask
 gunicorn
 yt-dlp
-requirements.txt
 pymongo
 youtube-search-python
 youtube_search
