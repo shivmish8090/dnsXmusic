@@ -31,4 +31,4 @@ yt-dlp
 pymongo
 youtube-search-python
 youtube_search
-Kurigram==2.2.6
+Kurigram
